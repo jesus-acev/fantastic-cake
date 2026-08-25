@@ -48,3 +48,6 @@ pnpm-debug.log*
 .Trashes
 Thumbs.db
 ehthumbs.db
+
+/specs/*
+

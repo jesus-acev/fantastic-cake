@@ -1,0 +1,236 @@
+/* ==========================================================================
+   Design System - Pastelería Artesanal
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --bg-primary: #FAF6F0;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #FFFDF9;
+  --bg-dark: #1E120E;
+  
+  --text-main: #2C1D17;
+  --text-muted: #6B5B54;
+  --text-light: #F7EFEC;
+
+  --accent-gold: #C88D37;
+  --accent-gold-hover: #A67123;
+  --accent-rose: #D95D69;
+  --accent-rose-light: #FDE8EA;
+  --accent-brown: #4A2E24;
+  --accent-cream: #F3E9DD;
+
+  --border-color: #E8DDD3;
+  --border-focus: #C88D37;
+
+  /* Shadows & Glassmorphism */
+  --shadow-sm: 0 2px 8px rgba(44, 29, 23, 0.05);
+  --shadow-md: 0 6px 20px rgba(44, 29, 23, 0.08);
+  --shadow-lg: 0 12px 32px rgba(44, 29, 23, 0.12);
+  --shadow-glow: 0 0 25px rgba(200, 141, 55, 0.2);
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark Mode Overrides if user prefers */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #17100D;
+    --bg-surface: #231915;
+    --bg-surface-elevated: #2C201B;
+    --text-main: #FAF1EC;
+    --text-muted: #BAAAA3;
+    --border-color: #382A24;
+    --accent-cream: #2D201A;
+  }
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Typography Utilities */
+.heading-xl {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.heading-lg {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.heading-md {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.subheading {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  max-width: 650px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  text-align: center;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-hover));
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(200, 141, 55, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 141, 55, 0.5);
+}
+
+.btn-secondary {
+  background: var(--bg-surface);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-cream);
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.badge-gold {
+  background: rgba(200, 141, 55, 0.15);
+  color: var(--accent-gold);
+  border: 1px solid rgba(200, 141, 55, 0.3);
+}
+
+.badge-rose {
+  background: var(--accent-rose-light);
+  color: var(--accent-rose);
+}
+
+/* Cards */
+.card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(200, 141, 55, 0.3);
+}
+
+/* Micro Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Section Spacing */
+.section-padding {
+  padding: 5rem 0;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3rem 0;
+  }
+}
