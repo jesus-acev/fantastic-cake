@@ -2,6 +2,7 @@
 .nuxt
 .output
 dist
+.playwright/
 app/.nuxt
 app/.output
 app/dist
