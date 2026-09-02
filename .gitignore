@@ -49,5 +49,8 @@ pnpm-debug.log*
 Thumbs.db
 ehthumbs.db
 
+# Material privado local enlazado desde la documentación pública.
 /internos/*
 
+# Playwright test screenshots
+.playwright/
